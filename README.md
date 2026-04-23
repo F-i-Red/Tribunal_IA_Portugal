@@ -77,7 +77,10 @@ Este protótipo conceptual foi desenhado para que os agentes (Detetive, Advogado
 │   ├── juiz.py          <-- O Coletivo (Gera as 3 Realidades Paralelas)
 │   └── escrivao.py      <-- Redator e custos
 ├── data/
-│   └── links_fonte.md   <-- A lista de links que copiaste
+│   ├── leis/          <-- Coloca aqui os .txt ou .pdf do DRE (Código Penal, Civil, etc.)
+│   ├── jurisprudencia/ <-- Coloca aqui os resumos de acórdãos do DGSI
+│   ├── contexto_utilizador/ <-- (Opcional) Teu repositório de documentos pessoais
+│   └── links_fonte.md   <-- A lista de links no README.md
 ├── templates/
 │   └── ata_final.md
 └── README.md
