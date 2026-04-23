@@ -90,19 +90,19 @@ Este protótipo conceptual foi desenhado para que os agentes (Detetive, Advogado
 ## 🛠️ O que precisas de fazer agora para testar:
 Faz download do repositório para o teu computador.
 
-Fazer download dos PDFs ou .txt das leis dos links: Põe dentro da pasta data/leis em .txt (ex: crp.txt) ou um .pdf.
+### 0 - Fazer download dos PDFs ou .txt das leis dos links: Põe dentro da pasta data/leis em .txt (ex: crp.txt) ou um .pdf.
 
 Instalar dependências:
 
-No terminal, corre:
+### 1 - No terminal, corre:
 ```bash
 pip install -r requirements.txt
 ou
 pip install langchain langchain-community pypdf chromadb openai python-dotenv tiktoken
 ```
-Coloca a tua API key no ficheiro .env
+### 2 - Coloca a tua API key no ficheiro .env
 
-Correr o Maestro:
+### 3 - Correr o Maestro:
 ```
 python main.py
 ```
