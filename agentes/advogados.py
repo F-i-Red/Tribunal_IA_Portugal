@@ -1,46 +1,26 @@
 # agentes/advogados.py
-# O Embate Jurídico: O Advogado do Diabo (Acusação) vs O Guardião (Defesa)
+from utils.brain import get_llm
 
 class Acusacao:
     def __init__(self):
-        self.perfil = "Advogado do Diabo"
-        self.foco = "Rigor Penal e Tipicidade"
+        self.llm = get_llm(temperature=0.2)
+        self.perfil = "Advogado do Diabo / Ministério Público"
 
-    def construir_tese(self, dados_detetive):
-        """Transforma factos em infrações penais/cíveis."""
-        provas = dados_detetive['provas_validadas']
-        status = dados_detetive['status']
-        
-        tese = "EXMO. SENHOR JUIZ,\n"
-        tese += "A conduta do arguido revela um total desrespeito pelas normas vigentes. "
-        
-        if 'sms' in provas or 'mensagem' in provas:
-            tese += "A prova digital demonstra premeditação e consciência da ilicitude. "
-        
-        if "🔴" in status:
-            tese += "Apesar da escassez de prova física, o clamor social exige uma punição exemplar baseada nos indícios apresentados."
-        else:
-            tese += "Com provas sólidas, não resta outra alternativa senão a condenação máxima prevista no Código."
-            
-        return tese
+    def construir_tese(self, dados_detetive, contexto_legal=""):
+        prompt = f"""Tu és o Advogado do Diabo no Tribunal IA Portugal. Foco em tipicidade, dolo e punição.
+Factos: {dados_detetive}
+Contexto legal disponível: {contexto_legal[:2000]}...
+Constrói uma tese de acusação formal, citando artigos relevantes do Código Penal ou Civil."""
+        return self.llm.invoke(prompt).content
 
 class Defesa:
     def __init__(self):
+        self.llm = get_llm(temperature=0.2)
         self.perfil = "Defensor Garantista"
-        self.foco = "Direitos Fundamentais e Atenuantes"
 
-    def construir_tese(self, dados_detetive):
-        """Transforma factos em justificações ou dúvidas razoáveis."""
-        provas = dados_detetive['provas_validadas']
-        
-        tese = "MERITÍSSIMO JUIZ,\n"
-        tese += "Estamos perante uma situação que exige sensibilidade humana e não apenas frieza mecânica. "
-        
-        if not provas:
-            tese += "In Dubio Pro Reo: Sem provas concretas, qualquer condenação seria um erro judiciário gravíssimo. "
-        else:
-            tese += f"A presença de {len(provas)} indício(s) não prova a intenção criminosa, apenas o contexto de conflito. "
-            
-        tese += "O meu constituinte agiu sob pressão e as circunstâncias atenuantes (Art. 71.º e 72.º do CP) devem prevalecer."
-        
-        return tese
+    def construir_tese(self, dados_detetive, contexto_legal=""):
+        prompt = f"""Tu és o Defensor no Tribunal IA Portugal. Foco na CRP, in dubio pro reo, atenuantes e direitos fundamentais.
+Factos: {dados_detetive}
+Contexto legal: {contexto_legal[:2000]}...
+Constrói uma tese de defesa formal."""
+        return self.llm.invoke(prompt).content
