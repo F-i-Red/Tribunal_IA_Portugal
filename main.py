@@ -1,4 +1,6 @@
 # main.py - Tribunal IA Portugal (Versão RAG)
+import dotenv
+dotenv.load_dotenv()
 import os
 from agentes.detetive import DetetiveJudicial
 from agentes.advogados import Acusacao, Defesa
