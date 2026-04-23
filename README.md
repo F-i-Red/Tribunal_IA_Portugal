@@ -67,5 +67,23 @@ Este protótipo conceptual foi desenhado para que os agentes (Detetive, Advogado
 
 ---
 
+## Tribunal-IA-Portugal/
+```bash
+├── main.py              <-- O Maestro (Gere o loop e a lógica de estado)
+├── agentes/
+│   ├── detetive.py      <-- Cérebro factual e termómetro de evidência
+│   ├── acusacao.py      <-- Advogado do Diabo (Rigor da Lei)
+│   ├── defesa.py        <-- Guardião das Garantias (CRP)
+│   ├── juiz.py          <-- O Coletivo (Gera as 3 Realidades Paralelas)
+│   └── escrivao.py      <-- Redator, tradutor para crianças e custos
+├── data/
+│   └── links_fonte.md   <-- Aquela lista de links que copiaste
+├── templates/
+│   └── ata_final.md     <-- O "design" bonito do documento final
+└── README.md
+```
+
+---
+
 ## ⚠️ Aviso Legal
 Este projeto tem fins educativos e de simulação. Não substitui o aconselhamento jurídico profissional por um advogado inscrito na Ordem dos Advogados.
