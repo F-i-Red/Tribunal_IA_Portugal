@@ -77,12 +77,13 @@ Este protótipo conceptual foi desenhado para que os agentes (Detetive, Advogado
 │   ├── juiz.py          <-- O Coletivo (Gera as 3 Realidades Paralelas)
 │   └── escrivao.py      <-- Redator e custos
 ├── data/
-│   ├── leis/          <-- Coloca aqui os .txt ou .pdf do DRE (Código Penal, Civil, etc.)
-│   ├── jurisprudencia/ <-- Coloca aqui os resumos de acórdãos do DGSI
+│   ├── leis/            <-- Coloca aqui os .txt ou .pdf do DRE (Código Penal, Civil, etc.)
+│   ├── jurisprudencia/  <-- Coloca aqui os resumos de acórdãos do DGSI
 │   ├── contexto_utilizador/ <-- (Opcional) Teu repositório de documentos pessoais
 │   └── links_fonte.md   <-- A lista de links no README.md
 ├── templates/
 │   └── ata_final.md
+├── .env                 <-- Coloca aqui a tua API key
 └── README.md
 ```
 ---
@@ -99,6 +100,8 @@ pip install -r requirements.txt
 ou
 pip install langchain langchain-community pypdf chromadb openai python-dotenv tiktoken
 ```
+Coloca a tua API key no ficheiro .env
+
 Correr o Maestro:
 ```
 python main.py
